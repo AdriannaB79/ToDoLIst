@@ -34,6 +34,7 @@ ion-icon{
     
 }
 
+
 .todo-list__app{
    background-color:rgb(247, 247, 247);
    border-radius: 3px;
@@ -45,13 +46,14 @@ ion-icon{
 }
 
 .todo-add-item__container{
-    background-color:#726a95;
+    background-color:#210a8a;
     padding: 3rem 2rem;
     border-radius: 3px 3px 0 0;
 }
 
 .todo-add-item__container >.heading{
     font-size:3rem;
+    color: white;
 }
 
 .todo-add-item{
