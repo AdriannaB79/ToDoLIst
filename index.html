@@ -4,14 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do List</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <title>Weekly To-Do List</title>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const today = new Date();
+            const options = { month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = today.toLocaleDateString('en-US', options);
+
+            // Setup for displaying week days and allowing selection to display specific day's to-dos
+            const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            const weekDaysContainer = document.getElementById('week-days');
+            weekDays.forEach(day => {
+                const dayElement = document.createElement('button');
+                dayElement.textContent = day;
+                dayElement.className = 'bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold py-1 px-4 border border-blue-400 rounded shadow';
+                dayElement.onclick = () => alert('Displaying tasks for ' + day); // Placeholder for actual functionality
+                weekDaysContainer.appendChild(dayElement);
+            });
+        });
+    </script>
 </head>
 
-<body>
+<body class="p-4">
+  
+    <header class="flex">
+        <div class="bg-yellow-200 p-4 rounded-lg shadow-lg border border-yellow-300 mt-10" style="height: 30vh;">
+            <!-- Nav ver. 1-->
+            <!--
+        <p class="font-bold">Navigation</p>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>-->
+            <!-- Nav ver.2-->
+            <p class="font-bold mb-4">My Tasks</p>
+            <ul class="list-none">
+                <li class="mb-2"><a href="#today" class="text-blue-800 hover:text-blue-600">Today</a></li>
+                <li class="mb-2"><a href="#week" class="text-blue-800 hover:text-blue-600">This Week</a></li>
+                <li class="mb-2"><a href="#all" class="text-blue-800 hover:text-blue-600">All Tasks</a></li>
+                <li class="mb-2"><a href="#settings" class="text-blue-800 hover:text-blue-600">Settings</a></li>
+            </ul>
+            <!--styling of this img need to be corrected!!!-->
+            <!--<img src="./img/ToDoListFunnyPic.png" alt="ToDo List Funny Picture" class="weight:2.5vh height: 2.5vh mt-4 rounded-lg shadow">-->
+            <img src="./img/ToDoIcon1.png" alt="alternativeIcon"
+                class="weight: 2.5vh height: 2.5vh mt-4 rounded-lg shadow">
+        </div>
+
+        <!--header-->
+
+        <div class="flex-1 ml-4">
+            <div class="bg-yellow-200 p-4 rounded-lg shadow-lg border border-yellow-300 my-4" style="width: 100%;">
+                <div class="flex justify-center my-4 text-lg">
+                    <p class="text-xl">This is our to-do list for this week.</p>
+                </div>
+                <div class="flex justify-center my-4">
+                    <p id="date" class="bg-white p-2 rounded shadow">Loading date...</p>
+                </div>
+                <div id="week-days" class="flex justify-between">
+                    <!-- Week days will be populated here by JavaScript -->
+                </div>
+            </div>
+            <!-- To-do list items for the selected day will be displayed here -->
+        </div>
+    </header>
+
     <Main>
         <section>
         <div class="todo-list__app">
