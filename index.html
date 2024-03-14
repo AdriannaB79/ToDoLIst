@@ -6,130 +6,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Weekly To-Do List</title>
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const today = new Date();
-            const options = { month: 'long', day: 'numeric' };
-            document.getElementById('date').textContent = today.toLocaleDateString('en-US', options);
-
-            // Setup for displaying week days and allowing selection to display specific day's to-dos
-            const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-            const weekDaysContainer = document.getElementById('week-days');
-            weekDays.forEach(day => {
-                const dayElement = document.createElement('button');
-                dayElement.textContent = day;
-                dayElement.className = 'bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold py-1 px-4 border border-blue-400 rounded shadow';
-                dayElement.onclick = () => alert('Displaying tasks for ' + day); // Placeholder for actual functionality
-                weekDaysContainer.appendChild(dayElement);
-            });
-        });
-    </script>
 </head>
 
-<body class="p-4">
-  
-    <header class="flex">
-        <div class="bg-yellow-200 p-4 rounded-lg shadow-lg border border-yellow-300 mt-10" style="height: 30vh;">
-            <!-- Nav ver. 1-->
-            <!--
-        <p class="font-bold">Navigation</p>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>-->
-            <!-- Nav ver.2-->
-            <p class="font-bold mb-4">My Tasks</p>
+<body class="flex flex-col h-screen justify-between bg-neutral-900">
+    <div class="flex h-screen">
+        <div class="w-1/5 px-4 py-10 rounded-lg shadow-lg border text-center border-neutral-700 bg-neutral-800">
+            <p class="font-bold mb-4 text-2xl py-8 text-white">My Tasks</p>
             <ul class="list-none">
-                <li class="mb-2"><a href="#today" class="text-blue-800 hover:text-blue-600">Today</a></li>
-                <li class="mb-2"><a href="#week" class="text-blue-800 hover:text-blue-600">This Week</a></li>
-                <li class="mb-2"><a href="#all" class="text-blue-800 hover:text-blue-600">All Tasks</a></li>
-                <li class="mb-2"><a href="#settings" class="text-blue-800 hover:text-blue-600">Settings</a></li>
+                <li class="py-3"><a href="#today" class="text-neutral-200 hover:text-blue-600 text-2xl p-8">Today</a>
+                </li>
+                <li class="py-3"><a href="#week" class="text-neutral-200 hover:text-blue-600 text-2xl p-8">This Week</a>
+                </li>
+                <li class="py-3"><a href="#all" class="text-neutral-200 hover:text-blue-600 text-2xl p-4">All Tasks</a>
+                </li>
+                <li class="py-3"><a href="#settings"
+                        class="text-neutral-200 p-4 hover:text-blue-600 text-2xl">Settings</a></li>
             </ul>
-            <!--styling of this img need to be corrected!!!-->
-            <!--<img src="./img/ToDoListFunnyPic.png" alt="ToDo List Funny Picture" class="weight:2.5vh height: 2.5vh mt-4 rounded-lg shadow">-->
             <img src="./img/ToDoIcon1.png" alt="alternativeIcon"
                 class="weight: 2.5vh height: 2.5vh mt-4 rounded-lg shadow">
         </div>
 
-        <!--header-->
-
-        <div class="flex-1 ml-4">
-            <div class="bg-yellow-200 p-4 rounded-lg shadow-lg border border-yellow-300 my-4" style="width: 100%;">
-                <div class="flex justify-center my-4 text-lg">
-                    <p class="text-xl">This is our to-do list for this week.</p>
-                </div>
-                <div class="flex justify-center my-4">
-                    <p id="date" class="bg-white p-2 rounded shadow">Loading date...</p>
-                </div>
-                <div id="week-days" class="flex justify-between">
-                    <!-- Week days will be populated here by JavaScript -->
-                </div>
-            </div>
-            <!-- To-do list items for the selected day will be displayed here -->
-        </div>
-    </header>
-
-    <Main>
-        <section>
-        <div class="todo-list__app">
-
-            <div class="todo-add-item__container">
-                <h1 class="heading">todo List</h1>
-                <form action="#" class="todo-add-item" id="todo-add">
-                    <input class="inputItem" id="item-input" type="text" name="text" placeholder="New Item">
-                    <input id="add-item" type="submit" value="Add">
-                </form>
-            </div>
-
-            <div class="todo-list__container">
-                <ul id="todo-list">
-                    <li class="todo-item">
-                        <button class="button-check">
-                            <i class="fas fa-check displayNone"></i>
-                        </button>
-                        <p class="task-name">Example</p>
-                        <i class="fas fa-edit"></i>
-                        <div class="editContainer">
-                            <input class="editInput" type="text">
-                            <button class="editButton">Edit</button>
-                            <button class="cancelButton">Cancel</button>
+        <Main class="w-screen">
+            <section class="w-3/5 m-auto">
+                <div>
+                    <div class="p-4 rounded-lg my-4" style="width: 100%;">
+                        <div class="flex justify-center my-4 text-lg">
+                            <p class="text-2xl font-bold py-4 text-amber-400">This is our to-do list for this week.</p>
                         </div>
-                        <i class="fas fa-trash-alt"></i>
+                        <div class="flex justify-center my-4">
+                            <p id="date" class="bg-white p-2 rounded shadow">Loading date...</p>
+                        </div>
+                        <div id="week-days" class="flex justify-between">
+                            <!-- Week days will be populated here by JavaScript -->
+                        </div>
+                    </div>
+                    <!-- To-do list items for the selected day will be displayed here -->
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const today = new Date();
+                        const options = { month: 'long', day: 'numeric' };
+                        document.getElementById('date').textContent = today.toLocaleDateString('en-US', options);
 
-                    </li>
-                </ul>
-            </div>
+                        // Setup for displaying week days and allowing selection to display specific day's to-dos
+                        const weekDays = ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                        const weekDaysContainer = document.getElementById('week-days');
 
-        </div>
-    </section>
-      
-    </Main>
-  
-    <footer>
-        <div class="footer-content">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                        for (let i = -3; i < weekDays.length - 3; i++) {
+                            let dayElement = document.createElement('button');
+                            const todaIsDay = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
+
+                            let day = weekDays[todaIsDay.getDay()];
+                            let date = weekDays;
+                            console.log('first', day);
+
+                            
+                            dayElement.textContent = todaIsDay.getUTCDate();
+                            dayElement.className = 'bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold py-1 px-4 border border-blue-400 rounded shadow';
+                            dayElement.onclick = () => alert('Displaying tasks for ' + day); // Placeholder for actual functionality
+                            weekDaysContainer.appendChild(dayElement);
+                        }
+
+                        // weekDays.forEach(day => {
+
+
+
+
+                        //     dayElement.textContent = day;
+
+                        // });
+                    });
+                </script>
+            </section>
+            <section class=" w-3/5 m-auto">
+                <div>
+                    <h2 id="datetime" class="date-hader"></h2>
+                    <div class="todo-list__container">
+                        <ul id="todo-list">
+                            <li class="todo-item">
+                                <button class="button-check">
+                                    <i class="fas fa-check displayNone"></i>
+                                </button>
+                                <p class="task-name">Example</p>
+                                <i class="fas fa-edit"></i>
+                                <div class="editContainer">
+                                    <input class="editInput" type="text">
+                                    <button class="editButton">Edit</button>
+                                    <button class="cancelButton">Cancel</button>
+                                </div>
+                                <i class="fas fa-trash-alt"></i>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="todo-add-item__container">
+                        <!-- <h1 class="heading">todo List</h1> -->
+                        <form action="#" class="todo-add-item" id="todo-add">
+                            <input class="inputItem" id="item-input" type="text" name="text" placeholder="New Item">
+                            <input id="add-item" type="submit" value="Add">
+                        </form>
+                    </div>
+                    <div>
+                        <p id="add-item" class="add-button-text"> + Add task</p>
+                    </div>
+                </div>
+                <div class="todo-list__app">
+
+                  
+
+                    
+
+                </div>
+            </section>
+
+        </Main>
+    </div>
+    <footer class="bg-neutral-800 p-10">
+        <div class="text-center">
+            <h3 class="text-2xl text-white py-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
             <p></p>
-            <ul class="socials">
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a></li>
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></li>
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a></li>
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a></li>
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></li>
+            <ul class="flex justify-center">
+                <li class="p-2"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-twitter">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                        </svg></a></li>
+                <li class="p-2"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg></a></li>
+                <li class="p-2"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-instagram">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg></a></li>
+                <li class="p-2"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-youtube">
+                            <path
+                                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                            <path d="m10 15 5-3-5-3z" />
+                        </svg></a></li>
+                <li class="p-2"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-linkedin">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg></a></li>
             </ul>
-        </div>
-
-        <div class="footer-bottom">
-            <p>copyrigth &copy;2024 TodoListgroup4. designed by <span>Group4</span></p>
+            <p class="text-xl text-white py-4">copyrigth &copy;2024 TodoListgroup4. designed by <span>Group4</span></p>
         </div>
     </footer>
-  <script src="toDo.js"></script>
+    <script src="toDo.js"></script>
 </body>
 
 </html>

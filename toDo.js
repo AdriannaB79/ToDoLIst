@@ -16,7 +16,7 @@
     //     })
     // }
 
-    function getSavedData() { 
+    function getSavedData() {
         let tasksData = localStorage.getItem("tasks") //saving the tasks on local storage
         tasksData = JSON.parse(tasksData) //transforming the saving the tasks on local storage in to object
         console.log(tasksData)
@@ -50,8 +50,8 @@
         const editButton = document.createElement("i")
         const deleteButton = document.createElement("i")
 
-/* Creates HTML elements to represent a task in the list, such as a paragraph (p) for the task name, 
-buttons for marking completed, edit, and delete.*/
+        /* Creates HTML elements to represent a task in the list, such as a paragraph (p) for the task name, 
+        buttons for marking completed, edit, and delete.*/
 
         li.className = "todo-item"
 
@@ -202,5 +202,12 @@ buttons for marking completed, edit, and delete.*/
 
 
     renderTasks() //display of tasks on the interface when the page is loaded.
+
+    // Get current date and time
+    var now = new Date();
+    var datetime = now.toLocaleDateString();
+
+    // Insert date and time into HTML
+    document.getElementById("datetime").innerHTML = datetime;
 
 })()
