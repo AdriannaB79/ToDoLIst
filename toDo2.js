@@ -141,7 +141,7 @@
             actions[dataAction]();
         }
     }
-// new line of code
+// NEW LINE OF CODE
     function addTaskFromParagraph() {
         const newTaskName = prompt("Enter new task:");
         if (newTaskName) {
