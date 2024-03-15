@@ -50,9 +50,9 @@ ion-icon {
 }
 
 .todo-add-item__container {
-    background-color: #210a8a;
-    padding: 3rem 2rem;
-    border-radius: 3px 3px 0 0;
+    /* background-color: #210a8a; */
+    /* padding: 3rem 2rem; */
+    /* border-radius: 3px 3px 0 0; */
 }
 
 .todo-add-item__container>.heading {
@@ -99,16 +99,29 @@ input[type="submit"]:hover {
 
 .todo-item {
     display: grid;
-    grid-template-columns: 1fr minmax(20rem, auto) 1fr 1fr;
-    grid-template-rows: auto;
-    column-gap: .8rem;
-
-    margin: 0 0 2rem;
-    padding: .8rem 2rem;
+    grid-template-columns: 0.5fr 4fr 0.5fr 0.5fr;
+    grid-template-rows: auto; 
+    column-gap: .5rem;
+    margin: 0 0 ;
+    padding: .8rem .8rem;
     border-radius: 3px;
-    box-shadow: 2px 2px 8px rgba(77, 77, 77, .5);
-
+    /* box-shadow: 2px 2px 8px rgba(77, 77, 77, .5); */
     position: relative;
+    /* background-color: #383838; */
+}
+
+.todo-item:hover {
+    background-color: #6464649d;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 0.5fr 0.5fr;
+    grid-template-rows: auto; 
+    column-gap: .5rem;
+    margin: 0 0 ;
+    padding: .8rem .8rem;
+    border-radius: 3px;
+    /* box-shadow: 2px 2px 8px rgba(77, 77, 77, .5); */
+    position: relative;
+    /* background-color: #383838; */
 }
 
 .todo-item:last-child {
@@ -123,7 +136,7 @@ input[type="submit"]:hover {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: .2rem;
-    border: 2px solid #726a95;
+    border: 2px solid rgb(241, 198, 104);
     position: relative;
     outline: transparent;
 }
@@ -133,8 +146,7 @@ input[type="submit"]:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #726a95;
-
+    color: rgb(241, 198, 104);
 }
 
 .fa-check.displayNone {
@@ -143,10 +155,10 @@ input[type="submit"]:hover {
 
 .task-name {
     grid-column: 2/3;
-
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     padding: 1rem;
     font-size: 1.1rem;
+    color: white;
 }
 
 .fa-edit {
@@ -158,16 +170,11 @@ input[type="submit"]:hover {
 .editContainer {
     position: absolute;
     z-index: 99999;
-    top: 4rem;
-    left: 2rem;
-    width: 120%;
-    height: 6rem;
-    background-color: rgb(225, 208, 252);
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
     border-radius: .4rem;
     box-shadow: 3px 3px 15px rgba(77, 77, 77, .8);
-
-    display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-; */
     align-items: center;
     display: none;
 }
@@ -227,8 +234,6 @@ input[type="submit"]:hover {
     justify-self: center;
     align-self: center;
     font-size: 1.5rem;
-
-
 }
 
 .fa-edit:hover,
@@ -243,12 +248,12 @@ input[type="submit"]:hover {
 }
 
 .fa-edit {
-    color: #70608f;
+    color:  rgb(241, 198, 104);
 }
 
 
 .fa-edit:hover {
-    color: #1a0577;
+    color:   rgb(241, 198, 104);
 }
 
 .fa-trash-alt:hover {
@@ -265,17 +270,26 @@ input[type="submit"]:hover {
 
 .date-hader {
     color: white;
+    
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgb(255, 255, 255);
-    padding-bottom: 5px;
     margin-bottom: 1rem;
+}
+
+.date-heder-div{
+    padding: 2rem;
 }
 
 .add-button-text{
     color: rgb(241, 198, 104);
     padding: 5px;
+    font-size:medium;
 }
 
 .add-button-text:hover{
     color: rgb(255, 255, 255);
+}
+
+.body-part{
+    height: auto;
 }
